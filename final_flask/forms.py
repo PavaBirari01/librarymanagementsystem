@@ -25,7 +25,7 @@ class AddSubjectForm(FlaskForm):
     submit=SubmitField(label='Add subject')
     
 class AddBookForm(FlaskForm):
-    bookTitle=StringField(label='Book Title',validators=[DataRequired()])
+    booktitle=StringField(label='Book Title',validators=[DataRequired()])
     bookNumber=IntegerField(label='Book Number',validators=[DataRequired()])
     subjectId=IntegerField(label='Subject ID',validators=[DataRequired()])
     bookAuthor=StringField(label='Book Author',validators=[DataRequired()])

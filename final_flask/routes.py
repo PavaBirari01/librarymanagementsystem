@@ -88,10 +88,10 @@ def addsubject():
 def addbooks():
     form=AddBookForm()
     if form.validate_on_submit(): 
-        users=Savebooks(bookTitle=form.bookTitle.data,bookNumber=form.bookNumber.data,subjectId=form.subjectId.data,bookAuthor=form.bookAuthor.data,PublisherName=form.PublisherName.data,price=form.price.data,pages=form.pages.data,)
+        users=Savebooks(booktitle=form.booktitle.data,bookNumber=form.bookNumber.data,subjectId=form.subjectId.data,bookAuthor=form.bookAuthor.data,PublisherName=form.PublisherName.data,price=form.price.data,pages=form.pages.data,)
         db.session.add(users)
         db.session.commit()
-        flash(f'Account created successfully for {form.bookTitle.data}', category='success')
+        flash(f'Account created successfully for {form.booktitle.data}', category='success')
         return redirect(url_for('account'))
     return render_template('addbook.html',title='addbook',form=form)
 
@@ -116,7 +116,7 @@ def booklist():
     if request.method=='POST':
         Kitab = request.form["Kitab"]
         cursor = conn.cursor()
-        cursor.execute("select * from Savebooks where bookTitle ='"+Kitab+"'")
+        cursor.execute("select * from Savebooks where booktitle ='"+Kitab+"'")
         Kitab = cursor.fetchall()
         print(Kitab)
         return render_template('booklist.html',title='booklist',Kitab=Kitab)

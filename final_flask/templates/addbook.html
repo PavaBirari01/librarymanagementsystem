@@ -5,11 +5,11 @@
     <fieldset>
       <legend class="border-bottom mb-4">Add new Book</legend>
       <div class="form-group">
-        {{form.bookTitle.label(class="form-control-label")}} {%if
-        form.bookTitle.error%} {{form.bookTitle(class="form-control
-        form-control-lg is-invalid")}} {%for error in form.bookTitle.errors%}
+        {{form.booktitle.label(class="form-control-label")}} {%if
+        form.booktitle.error%} {{form.booktitle(class="form-control
+        form-control-lg is-invalid")}} {%for error in form.booktitle.errors%}
         <span>{{error}}</span>
-        {%endfor%} {%else%} {{form.bookTitle(class="form-control
+        {%endfor%} {%else%} {{form.booktitle(class="form-control
         form-control-lg")}} {%endif%}
       </div>
 

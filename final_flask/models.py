@@ -26,7 +26,7 @@ class Subjects(db.Model,UserMixin):
     subid=db.Column(db.Integer,unique=True,nullable=False,primary_key=True)
 
 class Savebooks(db.Model,UserMixin):
-    bookTitle=db.Column(db.String,unique=True,nullable=False)
+    booktitle=db.Column(db.String,unique=True,nullable=False)
     bookNumber=db.Column(db.Integer,unique=True,nullable=False,primary_key=True)
     subjectId=db.Column(db.Integer,unique=True,nullable=False,primary_key=True)
     bookAuthor=db.Column(db.String,nullable=False)
@@ -34,6 +34,9 @@ class Savebooks(db.Model,UserMixin):
     price=db.Column(db.Integer,unique=True,nullable=False,primary_key=True)
     pages=db.Column(db.Integer,unique=True,nullable=False,primary_key=True)
 
-
+# results = db.session.query(Datas,Subjects).join(Subjects).all()
+    
+# for datas,subjects in results:
+#     print(datas.username,subjects.booktitle)
     # def __repr_(self):
     #     return f'{self.username} : {self.email} : {self.date_created.strftime("%d/%m/%y, %H:%M:%S")}'
