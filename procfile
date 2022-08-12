@@ -1,2 +1,1 @@
-# web: gunucorn app:app --Log-file=-
-web: flask run
+web: gunucorn app:app 
