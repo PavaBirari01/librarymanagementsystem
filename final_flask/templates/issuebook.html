@@ -1,0 +1,78 @@
+{% extends 'layouts.html' %} {% block contentA %}
+<div class="containeradduser rounded mt-3 bg-white p-md-5 bodyadduser">
+  <div class="font-weight-bold">Books avilable in Library</div>
+  <form method="post" action="">
+    <div class="row">
+      <div class="col-3">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Author Name"
+          name=""
+        />
+      </div>
+
+      <div class="col-3">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Book Name"
+          name=""
+        />
+      </div>
+
+      <div class="col-3">
+        <button type="submit" class="btn btn-primary">Search Book</button>
+      </div>
+    </div>
+  </form>
+  <div class="table-responsive">
+    <table class="table">
+      <thead clas="theadadduser">
+        <tr>
+          <th scope="col">Username</th>
+          <th scope="col">E-mail Id</th>
+          <th scope="col">Date Created</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="bg-blueadduser">
+          <td>
+            <div class="pl-lg-5 pl-md-3 pl-1 nameadduser">Emilia Kollette</div>
+          </td>
+          <td class="pt-3 mt-1">25 Sep 2020</td>
+          <td class="pt-3">11:00 AM</td>
+          <td>
+            <div class="d-flex flex-row mb-3">
+              <div>
+                <button type="button" class="btn">
+                  <i class="material-icons"> Book Return</i>
+                </button>
+              </div>
+            </div>
+          </td>
+        </tr>
+        <tr id="spacing-rowadduser">
+          <td></td>
+        </tr>
+        <tr class="bg-blueadduser">
+          <td>
+            <div class="pl-lg-5 pl-md-3 pl-1 nameadduser">Anny Adams</div>
+          </td>
+          <td class="pt-3">26 Sep 2020</td>
+          <td class="pt-3">11:00 AM</td>
+          <td>
+            <div class="d-flex flex-row mb-3">
+              <div>
+                <button type="button" class="btn">
+                  <i class="material-icons"> Book Return</i>
+                </button>
+              </div>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+{% endblock contentA %} {% block contentB %} {% endblock contentB %}
