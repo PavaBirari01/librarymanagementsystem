@@ -11,7 +11,7 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://aquovfvhnxfhww:3b01116fb02
 
 
 conn = psycopg2.connect(
-   database="d6qoa1cvmeobhb", user='aquovfvhnxfhww', password='3b01116fb023f893d0fc1eba91b6edf019429c2d8146c9fc2370f2ecb84beccd', host='ec2-44-206-89-185.compute-1.amazonaws.com',user='aquovfvhnxfhww',
+   database="d6qoa1cvmeobhb", user='aquovfvhnxfhww', password='3b01116fb023f893d0fc1eba91b6edf019429c2d8146c9fc2370f2ecb84beccd', host='ec2-44-206-89-185.compute-1.amazonaws.com'
 )
 cursor = conn.cursor()
 
