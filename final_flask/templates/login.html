@@ -1,41 +1,151 @@
 {% extends 'layouts.html' %}
 {% block contentA %}
-<div class="container w-50">
-    <form method="POST" action="">
-        {{form.hidden_tag()}}
-        <fieldset>
-        <legend class="border-bottom mb-4">Join Today</legend>
-       
-        <div class="form-group">
-                {{form.email.label(class="form-control-label")}}
-                {%if form.email.errors%}
-                {{form.email(class="form-control form-control-lg is-invalid")}}
-                {%for error in form.email.errors%}
-                <span>{{errors}}</span>
-                {%endfor%}
-                {%else%}
-                {{form.email(class="form-control form-control-lg")}}
-                {%endif%}
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <!-- <form method="POST" action="">
+                {{form.hidden_tag()}}
+                <fieldset>
+                    <legend class="border-bottom mb-4">Join Today</legend>
 
+                    <div class="form-group">
+                        {{form.email.label(class="form-control-label")}}
+                        {%if form.email.errors%}
+                        {{form.email(class="form-control form-control-lg is-invalid")}}
+                        {%for error in form.email.errors%}
+                        <span>{{errors}}</span>
+                        {%endfor%}
+                        {%else%}
+                        {{form.email(class="form-control form-control-lg")}}
+                        {%endif%}
+
+                    </div>
+                    <div class="form-group">
+                        {{form.password.label(class="form-control-label")}}
+                        {%if form.password.errors%}
+                        {{form.password(class="form-control form-control-lg is-invalid")}}
+                        {%for error in form.password.errors%}
+                        <span>{{errors}}</span>
+                        {%endfor%}
+                        {%else%}
+                        {{form.password(class="form-control form-control-lg")}}
+                        {%endif%}
+
+                    </div>
+
+                </fieldset>
+                <div class="form-group mt-5">
+                    {{form.submit(class='btn btn-outline-success')}}
+                    <a href="{{url_for('reset_request')}}">Foret Password ?</a>
+                </div>
+            </form> -->
+            <div class="containerForm">
+                <div class="screen">
+                    <div class="screen__content">
+                        <form class="login" method="POST" action="">
+                            {{form.hidden_tag()}}
+                            <h1>User Login</h1>
+                            <div class="login__field">
+                                <i class="login__icon fas fa-user"></i>
+                                <div class="form-group login__input">
+                                    {{form.email.label(class="form-control-label")}}
+                                    {%if form.email.errors%}
+                                    {{form.email(class="form-control form-control-lg is-invalid")}}
+                                    {%for error in form.email.errors%}
+                                    <span>{{errors}}</span>
+                                    {%endfor%}
+                                    {%else%}
+                                    {{form.email(class="form-control form-control-lg")}}
+                                    {%endif%}
+
+                                </div>
+                            </div>
+                            <div class="login__field ">
+                                <i class="login__icon fas fa-lock"></i>
+                                <div class="form-group login__input">
+                                    {{form.password.label(class="form-control-label")}}
+                                    {%if form.password.errors%}
+                                    {{form.password(class="form-control form-control-lg is-invalid")}}
+                                    {%for error in form.password.errors%}
+                                    <span>{{errors}}</span>
+                                    {%endfor%}
+                                    {%else%}
+                                    {{form.password(class="form-control form-control-lg")}}
+                                    {%endif%}
+
+                                </div>
+                            </div>
+                            <div class=" ">
+                                {{form.submit(class='login__submit')}}
+                                <i class="button__icon fas fa-chevron-right"></i>
+                                <!-- <a href="{{url_for('reset_request')}}">Foret Password ?</a> -->
+                            </div>
+                        </form>
+                    </div>
+                    <div class="screen__background">
+                        <span class="screen__background__shape screen__background__shape4"></span>
+                        <span class="screen__background__shape screen__background__shape3"></span>
+                        <span class="screen__background__shape screen__background__shape2"></span>
+                        <span class="screen__background__shape screen__background__shape1"></span>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="form-group">
-            {{form.password.label(class="form-control-label")}}
-            {%if form.password.errors%}
-            {{form.password(class="form-control form-control-lg is-invalid")}}
-            {%for error in form.password.errors%}
-            <span>{{errors}}</span>
-            {%endfor%}
-            {%else%}
-            {{form.password(class="form-control form-control-lg")}}
-            {%endif%}
-    
+        <div class="col">
+            <div class="containerForm">
+                <div class="screen">
+                    <div class="screen__content">
+                        <form class="login" method="POST" action="">
+                            {{form.hidden_tag()}}
+                            <h1>Admin Login</h1>
+                            <div class="login__field">
+                                <i class="login__icon fas fa-user"></i>
+                                <div class="form-group login__input">
+                                    {{form.email.label(class="form-control-label")}}
+                                    {%if form.email.errors%}
+                                    {{form.email(class="form-control form-control-lg is-invalid")}}
+                                    {%for error in form.email.errors%}
+                                    <span>{{errors}}</span>
+                                    {%endfor%}
+                                    {%else%}
+                                    {{form.email(class="form-control form-control-lg")}}
+                                    {%endif%}
+
+                                </div>
+                            </div>
+                            <div class="login__field ">
+                                <i class="login__icon fas fa-lock"></i>
+                                <div class="form-group login__input">
+                                    {{form.password.label(class="form-control-label")}}
+                                    {%if form.password.errors%}
+                                    {{form.password(class="form-control form-control-lg is-invalid")}}
+                                    {%for error in form.password.errors%}
+                                    <span>{{errors}}</span>
+                                    {%endfor%}
+                                    {%else%}
+                                    {{form.password(class="form-control form-control-lg")}}
+                                    {%endif%}
+
+                                </div>
+                            </div>
+                            <div class=" ">
+                                {{form.submit(class='login__submit')}}
+                                <i class="button__icon fas fa-chevron-right"></i>
+                                <!-- <a href="{{url_for('reset_request')}}">Foret Password ?</a> -->
+                            </div>
+                        </form>
+                    </div>
+                    <div class="screen__background">
+                        <span class="screen__background__shape screen__background__shape4"></span>
+                        <span class="screen__background__shape screen__background__shape3"></span>
+                        <span class="screen__background__shape screen__background__shape2"></span>
+                        <span class="screen__background__shape screen__background__shape1"></span>
+                    </div>
+                </div>
+            </div>
         </div>
-       
-        </fieldset>
-        <div class="form-group mt-5">
-            {{form.submit(class='btn btn-outline-success')}}
-            <a href="{{url_for('reset_request')}}">Foret Password ?</a>
-        </div>
-    </form>
+
+    </div>
 </div>
+
 {% endblock contentA %}

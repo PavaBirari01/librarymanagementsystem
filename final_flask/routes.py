@@ -45,7 +45,7 @@ def login():
         user=Datas.query.filter_by(email=form.email.data).first()
         if user and bcrypt.check_password_hash(user.password,form.password.data):
             login_user(user)
-            flash(f'Login successfully for {form.email.data}',category='success')
+            flash(f'Login successfully for {form.email.data}', category='success')
             return redirect(url_for('account'))
         else:
             flash(f'Login failed for {form.email.data}',category='danger')
@@ -143,25 +143,9 @@ def subjectlist():
         cursor.execute("select * from Subjects" )
         Subject = cursor.fetchall()
         return render_template('subjectlist.html',title='subjectlist',Subject=Subject)
-        
-
-
-    # form=AddSubjectForm()
-    # users=Subjects(subname=form.subname.data,subid=form.subid.data)
-    # db.session.add(users)
-    # db.session.commit()
    
 @app.route('/issuebook',methods=['POST','GET'])
 def issuebook():
     return render_template('issuebook.html',title='issuebook')
 
 
-
-
-# @app.route('/showProfiles')
-# def Profiles():
-#     cursor = conn.cursor()
-#     cursor.execute("select * from Datas")
-#     Datas = cursor.fetchall()
-#     print("Connection established to: ",Datas)
-#     return render_template('tables.html',Datas=Datas)
