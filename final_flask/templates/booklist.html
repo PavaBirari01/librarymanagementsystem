@@ -1,5 +1,10 @@
 {% extends 'layouts.html' %}
 {% block contentA %}
+<div>
+  <br>
+  <a class="btn btn-outline-primary" style='align-items: flex-start;' href="{{url_for('account')}}">Back</a>
+  <br>
+</div>
 <div class="container rounded mt-3 bg-white p-md-5 br">
   <form method="post" action="">
     <div class="row">
@@ -29,10 +34,10 @@
       {% for Kitab in Kitab %}
       <tr class="table-hover table-b
             ordered border-primary table-sm">
-        <td>{{Kitab[0]}}</td>
-        <td>{{Kitab[3]}}</td>
+        <td>{{Kitab[1]}}</td>
         <td>{{Kitab[4]}}</td>
         <td>{{Kitab[5]}}</td>
+        <td>{{Kitab[6]}}</td>
         <td>
           <button type="button" type="button" class="btn btn-success">
             <i class="material-icons" value={{Kitab[0]}}> Issue</i>

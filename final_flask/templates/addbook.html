@@ -1,4 +1,9 @@
 {% extends 'layouts.html' %} {% block contentA %}
+<div>
+  <br>
+  <a class="btn btn-outline-primary" style='align-items: flex-start;' href="{{url_for('account')}}">Back</a>
+  <br>
+</div>
 <div class="container w-50">
   <form method="POST" action="">
     {{form.hidden_tag()}}
