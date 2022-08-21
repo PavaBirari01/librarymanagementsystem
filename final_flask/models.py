@@ -20,14 +20,14 @@ class Datas(db.Model,UserMixin):
     # image_file=db.Column(db.String(20),nullable=False,default='default.jpg')
     password=db.Column(db.String(60),nullable=False)
     date_created=db.Column(db.DateTime,default=datetime.utcnow)
-    savebooksbymember = db.relationship('Savebooks', backref='datas')
+    bookissuedbymember = db.relationship('Bookissuedbymember', backref='datas')
+
 
 class Subjects(db.Model,UserMixin):
     subname=db.Column(db.String(20),unique=True,nullable=False)
     subid=db.Column(db.Integer,unique=True,nullable=False,primary_key=True)
 
 class Savebooks(db.Model,UserMixin):
-    datas_id=db.Column(db.Integer, db.ForeignKey('datas.id'))
     booktitle=db.Column(db.String,unique=True,nullable=False)
     bookNumber=db.Column(db.Integer,unique=True,nullable=False,primary_key=True)
     subjectId=db.Column(db.Integer,unique=True,nullable=False,primary_key=True)
@@ -37,9 +37,8 @@ class Savebooks(db.Model,UserMixin):
     pages=db.Column(db.Integer,unique=True,nullable=False,primary_key=True)
     
 
-# class Bookissuedbymember(db.Model.UserMixin):
-#     id=db.Column(db.Integer,primary_key=True)
-#     username=db.Column(db.String(20),unique=True,nullable=False)
-#     email=db.Column(db.String(120),unique=True,nullable=False)
-#     booktitle=db.Column(db.String,unique=True,nullable=False)
-#     bookNumber=db.Column(db.Integer,unique=True,nullable=False,primary_key=True)
+class Bookissuedbymember(db.Model,UserMixin):
+    username=db.Column(db.String(20),unique=True,nullable=False)
+    booktitle=db.Column(db.String,unique=True,nullable=False)
+    bookNumber=db.Column(db.Integer,unique=True,nullable=False,primary_key=True)
+    datas_id=db.Column(db.Integer, db.ForeignKey('datas.id'))

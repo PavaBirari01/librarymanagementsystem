@@ -1,7 +1,8 @@
+from sqlite3 import Cursor
 from flask import Flask, render_template, url_for,redirect,flash,request
 from final_flask import forms,app,db,bcrypt,conn
 from final_flask.forms import RegistrationForm,LoginForm,ResetRequestForm,AddSubjectForm,AddBookForm
-from final_flask.models import Datas,Subjects,Savebooks
+from final_flask.models import Datas,Subjects,Savebooks,Bookissuedbymember
 # app = Flask(__name__)
 from final_flask import app, db
 from flask_login import login_required, login_user,logout_user,current_user
@@ -146,6 +147,23 @@ def subjectlist():
    
 @app.route('/issuebook',methods=['POST','GET'])
 def issuebook():
+    # if request.method=='POST':
+    #     print("pranoti")
+    #     hidden_id = request.form["hidden_id"]
+    #     # print(hidden_id)
+    #     # print("pranoti")
+    #     kitab0 = request.form["kitab0"]
+    #     kitab1 = request.form["kitab1"]
+    #     xyx = Bookissuedbymember(username=current_user.username,booktitle=kitab0,bookNumber=kitab1,datas_id=hidden_id)
+    #     db.session.add(xyx)
+    #     db.session.commit()
+        # id=current_user.id 
+        # cursor = conn.cursor()
+        # cursor.execute("select* from bookissuedbymember")
+        # bookedby = cursor.fetchall()
+        # bookedbyuser = Bookissuedbymember.query.filter_by(datas_id=id).all()
+        # return render_template('issuebook.html',title='issuebook',bookedbyuser=bookedbyuser)
+    
     return render_template('issuebook.html',title='issuebook')
 
 

@@ -23,7 +23,10 @@
   <table class="table-primary table table-hover table-bordered border-primary table-sm" style="text-align: center;">
     <thead>
       <tr>
+      
         <th scope="col">Subject Name</th>
+        <th scope="col">subject code</th>
+        <th scope="col">subject code</th>
         <th scope="col">subject code</th>
         <!-- <th scope="col">Publisher Name</th>
         <th scope="col">Book Price</th>
@@ -31,15 +34,17 @@
       </tr>
     </thead>
     <tbody>
-      {% for issudedby in issudedby %}
+      {% for bookedbyuser in bookedbyuser %}
       <tr class="table-hover table-b
             ordered border-primary table-sm">
-        <td>{{issudedby[0]}}</td>
-        <td>{{issudedby[1]}}</td>
-
+        <td>{{bookedbyuser[0]}}</td>
+        <td>{{bookedbyuser[1]}}</td>
+        <td>{{bookedbyuser[2]}}</td>
+        <td>{{bookedbyuser[3]}}</td>
+        
         <td>
           <button type="button" type="button" class="btn btn-success">
-            <i class="material-icons" value={{issudedby[0]}}> Remove</i>
+            <i class="material-icons" value={{bookedbyuser[0]}}> Remove</i>
           </button>
         </td>
       </tr>

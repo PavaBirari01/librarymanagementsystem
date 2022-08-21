@@ -23,7 +23,9 @@
   <table class="table-primary table table-hover table-bordered border-primary table-sm" style="text-align: center;">
     <thead>
       <tr>
+        <th scope="col">HIdden ID</th>
         <th scope="col">Book Name</th>
+        <th scope="col">Book Number</th>
         <th scope="col">Auhor Name</th>
         <th scope="col">Publisher Name</th>
         <th scope="col">Book Price</th>
@@ -31,19 +33,25 @@
       </tr>
     </thead>
     <tbody>
-      {% for Kitab in Kitab %}
-      <tr class="table-hover table-b
+      <form method="POST" action="/issuebook" >
+        {% for Kitab in Kitab %}
+        <tr class="table-hover table-b
             ordered border-primary table-sm">
-        <td>{{Kitab[1]}}</td>
-        <td>{{Kitab[4]}}</td>
-        <td>{{Kitab[5]}}</td>
-        <td>{{Kitab[6]}}</td>
-        <td>
-          <button type="button" type="button" class="btn btn-success">
-            <i class="material-icons" value={{Kitab[0]}}> Issue</i>
-          </button>
-        </td>
-      </tr>
+          <td name="hidden_id">{{current_user.id}}</td>
+          <td name="kitab0">{{Kitab[0]}}</td>
+          <td name="kitab1">{{Kitab[1]}}</td>
+          <td name="kitab4">{{Kitab[4]}}</td>
+          <td name="kitab5">{{Kitab[5]}}</td>
+          <td name="kitab6">{{Kitab[6]}}</td>
+          <td >
+            <!-- <button type="button" type="submit" class="btn btn-success">
+              <i class="material-icons" value={{Kitab[0]}}> Issue</i>
+            </button> -->
+            <button type="submit" type="button" value={{Kitab[0]}} name=""
+            class="btn btn-primary">Issue Book</button>
+          </td>
+        </tr>
+      </form>
     </tbody>
     {%endfor%}
   </table>

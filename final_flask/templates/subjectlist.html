@@ -51,24 +51,30 @@
     <thead>
       <tr>
         <!-- <th scope="col">Sr.No</th> -->
+
         <th scope="col">Subject Name</th>
         <th scope="col">Subject Code</th>
         <th scope="col">Action</th>
       </tr>
     </thead>
     <tbody>
-      {% for Subject in Subject %}
-      <tr class="table-hover table-b
+      <form method="POST" action="/issuebook">
+        {% for Subject in Subject %}
+        <tr class="table-hover table-b
             ordered border-primary table-sm">
-        <!-- <th scope="row">{{Subject[]}}</th> -->
-        <td>{{Subject[0]}}</td>
-        <td>{{Subject[1]}}</td>
-        <td>
-          <button type="button" type="button" class="btn btn-success">
-            <i class="material-icons" value={{Subject[0]}}> Issue</i>
-          </button>
-        </td>
-      </tr>
+          <!-- <th scope="row">{{Subject[]}}</th> -->
+          <td>{{Subject[0]}}</td>
+          <td>{{Subject[1]}}</td>
+
+          <td>
+            <!-- <button type="button" type="button" class="btn btn-success">
+              <i class="material-icons" value={{Subject[0]}}> Issue</i>
+            </button> -->
+            <button type="submit" type="button" value={{Subject[0]}} name=""
+            class="btn btn-primary">Issue Subject</button>
+          </td>
+        </tr>
+      </form>
       <!-- -->
     </tbody>
     {%endfor%}
