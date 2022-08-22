@@ -1,23 +1,5 @@
 {% extends 'layouts.html' %}
-{% block contentA %}
-<div>
-  <br>
-  <a class="btn btn-outline-primary" style='align-items: flex-start;' href="{{url_for('account')}}">Back</a>
-  <br>
-</div>
-<div class="container rounded mt-3 bg-white p-md-5 br">
-  <form method="post" action="">
-    <div class="row">
-      <div class="col-3">
-        <input type="text" class="form-control" placeholder="Book Name" name="Kitab" required />
-      </div>
-      <div class="col-3">
-        <button type="submit" class="btn btn-primary">Search Book</button>
-      </div>
-    </div>
-  </form>
-</div>
-{% endblock contentA %}
+
 {% block contentC%}
 <div class="table-responsive container">
   <table class="table-primary table table-hover table-bordered border-primary table-sm" style="text-align: center;">
@@ -33,27 +15,24 @@
       </tr>
     </thead>
     <tbody>
-      <form method="POST" action="/issuebook" >
-        {% for Kitab in Kitab %}
-        <tr class="table-hover table-b
-            ordered border-primary table-sm">
-          <td name="hidden_id">{{current_user.id}}</td>
-          <td name="kitab0">{{Kitab[0]}}</td>
-          <td name="kitab1">{{Kitab[1]}}</td>
-          <td name="kitab4">{{Kitab[4]}}</td>
-          <td name="kitab5">{{Kitab[5]}}</td>
-          <td name="kitab6">{{Kitab[6]}}</td>
-          <td >
-            <!-- <button type="button" type="submit" class="btn btn-success">
-              <i class="material-icons" value={{Kitab[0]}}> Issue</i>
-            </button> -->
-            <button type="submit" type="button" value={{Kitab[0]}} name=""
-            class="btn btn-primary">Issue Book</button>
-          </td>
-        </tr>
-      </form>
+      {% for Kitab in Kitab %}
+      <tr class="table-hover table-bordered border-primary table-sm">
+        <td name="hidden_id" type="input">{{current_user.id}}</td>
+        <td name="kitab0" type="input">{{Kitab[0]}}</td>
+        <td name="kitab1" type="input">{{Kitab[1]}}</td>
+        <td name="kitab4" type="input">{{Kitab[4]}}</td>
+        <td name="kitab5" type="input">{{Kitab[5]}}</td>
+        <td name="kitab6" type="input">{{Kitab[6]}}</td>
+        <td>
+          <form method="POST" action="/issuebook">
+          <button type="input" value={{Kitab[0]}} class="btn btn-primary" name="btnsubmit">Issue Book</button>
+          </form>
+        </td>
+
+      </tr>
+      {%endfor%}
     </tbody>
-    {%endfor%}
+
   </table>
 </div>
 {% endblock contentC %}

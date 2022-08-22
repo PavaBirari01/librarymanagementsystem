@@ -147,19 +147,28 @@ def subjectlist():
    
 @app.route('/issuebook',methods=['POST','GET'])
 def issuebook():
-    # if request.method=='POST':
-    #     print("pranoti")
-    #     hidden_id = request.form["hidden_id"]
-    #     # print(hidden_id)
+    if request.method=='POST':
+        print("pranoti")
+        # hidden_id = request.form["hidden_id"]
+        # print(hidden_id)
     #     # print("pranoti")
-    #     kitab0 = request.form["kitab0"]
+        kitab0 = request.form["btnsubmit"]
+        print(kitab0)
+        cursor = conn.cursor()
+        cursor.execute("select * from savebooks WHERE booktitle ='"+kitab0+"'")
+        bookedbyuser = cursor.fetchall()
+        print(bookedbyuser)
+        print('pavan')
+        # cursor.execute("INSERT INTO bookissuedbymember(username, booktitle,bookNumber,datas_id)VALUES (current_user.username, '"+bookedbyuser[1]+"','"+bookedbyuser[4]+"','"+bookedbyuser[5]+"')")
+        
+        return render_template('issuebook.html',title='issuebook',bookedbyuser=bookedbyuser)
     #     kitab1 = request.form["kitab1"]
     #     xyx = Bookissuedbymember(username=current_user.username,booktitle=kitab0,bookNumber=kitab1,datas_id=hidden_id)
     #     db.session.add(xyx)
     #     db.session.commit()
         # id=current_user.id 
-        # cursor = conn.cursor()
-        # cursor.execute("select* from bookissuedbymember")
+        # 
+        # 
         # bookedby = cursor.fetchall()
         # bookedbyuser = Bookissuedbymember.query.filter_by(datas_id=id).all()
         # return render_template('issuebook.html',title='issuebook',bookedbyuser=bookedbyuser)
