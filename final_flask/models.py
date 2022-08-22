@@ -29,10 +29,10 @@ class Subjects(db.Model,UserMixin):
 
 class Savebooks(db.Model,UserMixin):
     booktitle=db.Column(db.String,unique=True,nullable=False)
-    bookNumber=db.Column(db.Integer,unique=True,nullable=False,primary_key=True)
-    subjectId=db.Column(db.Integer,unique=True,nullable=False,primary_key=True)
-    bookAuthor=db.Column(db.String,nullable=False)
-    PublisherName=db.Column(db.String,nullable=False)
+    booknumber=db.Column(db.Integer,unique=True,nullable=False,primary_key=True)
+    subjectid=db.Column(db.Integer,unique=True,nullable=False,primary_key=True)
+    bookauthor=db.Column(db.String,nullable=False)
+    Publishername=db.Column(db.String,nullable=False)
     price=db.Column(db.Integer,unique=True,nullable=False,primary_key=True)
     pages=db.Column(db.Integer,unique=True,nullable=False,primary_key=True)
     
@@ -40,5 +40,5 @@ class Savebooks(db.Model,UserMixin):
 class Bookissuedbymember(db.Model,UserMixin):
     username=db.Column(db.String(20),unique=True,nullable=False)
     booktitle=db.Column(db.String,unique=True,nullable=False)
-    bookNumber=db.Column(db.Integer,unique=True,nullable=False,primary_key=True)
+    booknumber=db.Column(db.Integer,unique=True,nullable=False,primary_key=True)
     datas_id=db.Column(db.Integer, db.ForeignKey('datas.id'))

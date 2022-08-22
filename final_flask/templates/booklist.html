@@ -1,4 +1,23 @@
 {% extends 'layouts.html' %}
+{% block contentA %}
+<div>
+  <br>
+  <a class="btn btn-outline-primary" style='align-items: flex-start;' href="{{url_for('account')}}">Back</a>
+  <br>
+</div>
+<div class="container rounded mt-3 bg-white p-md-5 br">
+  <form method="post" action="">
+    <div class="row">
+      <div class="col-3">
+        <input type="text" class="form-control" placeholder="Book Name" name="Kitab" required />
+      </div>
+      <div class="col-3">
+        <button type="submit" class="btn btn-primary">Search Book</button>
+      </div>
+    </div>
+  </form>
+</div>
+{% endblock contentA %}
 
 {% block contentC%}
 <div class="table-responsive container">
@@ -25,7 +44,7 @@
         <td name="kitab6" type="input">{{Kitab[6]}}</td>
         <td>
           <form method="POST" action="/issuebook">
-          <button type="input" value={{Kitab[0]}} class="btn btn-primary" name="btnsubmit">Issue Book</button>
+            <button type="input" value={{Kitab[0]}} class="btn btn-primary" name="btnsubmit">Issue Book</button>
           </form>
         </td>
 

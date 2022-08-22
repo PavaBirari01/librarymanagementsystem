@@ -89,7 +89,7 @@ def addsubject():
 def addbooks():
     form=AddBookForm()
     if form.validate_on_submit(): 
-        users=Savebooks(booktitle=form.booktitle.data,bookNumber=form.bookNumber.data,subjectId=form.subjectId.data,bookAuthor=form.bookAuthor.data,PublisherName=form.PublisherName.data,price=form.price.data,pages=form.pages.data,)
+        users=Savebooks(booktitle=form.booktitle.data,booknumber=form.booknumber.data,subjectid=form.subjectid.data,bookauthor=form.bookauthor.data,Publishername=form.Publishername.data,price=form.price.data,pages=form.pages.data,)
         db.session.add(users)
         db.session.commit()
         flash(f'Account created successfully for {form.booktitle.data}', category='success')
@@ -156,14 +156,14 @@ def issuebook():
         print(kitab0)
         cursor = conn.cursor()
         cursor.execute("select * from savebooks WHERE booktitle ='"+kitab0+"'")
-        bookedbyuser = cursor.fetchall()
+        bookedbyuser = cursor.fetchmany([1])
         print(bookedbyuser)
         print('pavan')
-        # cursor.execute("INSERT INTO bookissuedbymember(username, booktitle,bookNumber,datas_id)VALUES (current_user.username, '"+bookedbyuser[1]+"','"+bookedbyuser[4]+"','"+bookedbyuser[5]+"')")
+        cursor.execute("INSERT INTO bookissuedbymember(username, booktitle,booknumber,datas_id)VALUES (current_user.username, '"+bookedbyuser[1]+"','"+bookedbyuser[4]+"','"+bookedbyuser[5]+"')")
         
         return render_template('issuebook.html',title='issuebook',bookedbyuser=bookedbyuser)
     #     kitab1 = request.form["kitab1"]
-    #     xyx = Bookissuedbymember(username=current_user.username,booktitle=kitab0,bookNumber=kitab1,datas_id=hidden_id)
+    #     xyx = Bookissuedbymember(username=current_user.username,booktitle=kitab0,booknumber=kitab1,datas_id=hidden_id)
     #     db.session.add(xyx)
     #     db.session.commit()
         # id=current_user.id 

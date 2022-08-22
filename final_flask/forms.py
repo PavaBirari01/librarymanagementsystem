@@ -26,10 +26,10 @@ class AddSubjectForm(FlaskForm):
     
 class AddBookForm(FlaskForm):
     booktitle=StringField(label='Book Title',validators=[DataRequired()])
-    bookNumber=IntegerField(label='Book Number',validators=[DataRequired()])
-    subjectId=IntegerField(label='Subject ID',validators=[DataRequired()])
-    bookAuthor=StringField(label='Book Author',validators=[DataRequired()])
-    PublisherName=StringField(label='Book Publisher Name',validators=[DataRequired()])
+    booknumber=IntegerField(label='Book Number',validators=[DataRequired()])
+    subjectid=IntegerField(label='Subject ID',validators=[DataRequired()])
+    bookauthor=StringField(label='Book Author',validators=[DataRequired()])
+    Publishername=StringField(label='Book Publisher Name',validators=[DataRequired()])
     price=IntegerField(label='Book Price',validators=[DataRequired()])
     pages=IntegerField(label='Total Pages',validators=[DataRequired()])
     submit=SubmitField(label='Add New Book')
